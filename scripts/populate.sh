@@ -7,6 +7,6 @@ sh create_master.sh
 
 sleep 5
 
-OUTPUT2=$(python get_branches.py)
-FINAL="$(sh repo_tree.sh ${OUTPUT2})"
+OUTPUT=$(python get_branches.py)
+FINAL="$(sh repo_tree.sh ${OUTPUT})"
 

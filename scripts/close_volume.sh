@@ -2,4 +2,4 @@
 alias home="cd"
 
 home
-sudo umount ~/metaGit/branches/"$2"
+sudo umount ~/metaGit/branches/"$1"
