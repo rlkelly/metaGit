@@ -34,12 +34,12 @@ headers = {
 }
 
 for branch in branches:
-    requests.get('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
+    requests.delete('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
 
 try:
-    branch.pop(branch.index(sys.argv[1]))
+    branches.pop(branch.index(sys.argv[1]))
 except IndexError:
-    main = branch.pop(branch.index('master'))
+    main = branches.pop(branch.index('master'))
 
 order = main + ' '.join(lst)
 
