@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+command | tee -a "$log_file"
 
 for var in "$@"
 do
