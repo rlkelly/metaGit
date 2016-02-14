@@ -14,3 +14,10 @@ POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
 DELETE /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 ß
+
+
+
+
+eval `ssh-agent -s`
+
+eval ssh-add github
