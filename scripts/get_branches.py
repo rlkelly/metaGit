@@ -39,13 +39,15 @@ def get_branches():
         requests.delete('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
 
     try:
-        main = branches.pop(branches.index(sys.argv[1]))
-    except IndexError:
-        main = branches.pop(branch.index('master'))
+        main = sys.argv[1]
+        branches.remove(sys.argv[1])
+    except ValueError:
+        main = 'master'
+        branches.remove('master')
 
     order = main + ' ' + ' '.join(branches)
 
-    print branches
+    print order
 
     return branches
 

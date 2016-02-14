@@ -23,3 +23,6 @@ metaFolder
 git clone git@github.com:rlkelly/metaGit.git
 home
 sudo umount /home/ec2-user/metaGit
+
+OUTPUT="$(python get_branches.py)"
+FINAL="$(sh repo_tree.sh ${OUTPUT})"
