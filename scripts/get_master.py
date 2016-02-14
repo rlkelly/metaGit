@@ -38,10 +38,10 @@ def get_master():
         requests.delete('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
 
     try:
-        main = branches.pop(branches.index(sys.argv[1]))
+        main = branches.pop(branches.index(sys.argv[2]))
     except IndexError:
         main = branches.pop(branch.index('master'))
-
+    print 'master'
     return main
 
 get_master()
