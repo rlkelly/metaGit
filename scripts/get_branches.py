@@ -41,7 +41,7 @@ def get_branches():
     try:
         main = sys.argv[1]
         branches.remove(sys.argv[1])
-    except ValueError:
+    except ValueError, IndexError:
         main = 'master'
         branches.remove('master')
 
