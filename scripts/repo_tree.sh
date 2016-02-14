@@ -1,4 +1,6 @@
 #!/bin/bash
+set -e
+
 alias home="cd"
 alias metaFolder="cd metaGit"
 
