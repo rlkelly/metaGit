@@ -9,6 +9,7 @@ curl 'http://52.3.253.34/occm/api/vsa/volumes?createAggregateIfNotFound=false' -
 eval "ssh-agent -s"
 eval ssh-add ~/.ssh/github
 home
+pwd
 sudo mount -o nolock  172.31.44.3:/$1 /home/ec2-user/metaGit
 metaGit
 metaMaster
