@@ -46,6 +46,6 @@ print main
 print order
 print order[1:]
 os.system('sh scripts/create_master.sh {}'.format(main))
-os.system('sh scripts/repo_tree.sh {}'.format(main, order[1:]))
+os.system('sh scripts/repo_tree.sh {}'.format(main))
 
 print('Complete!')
