@@ -11,5 +11,6 @@ do
     metaGit
     sudo mount -o nolock  172.31.44.3:/$var /home/ec2-user/metaGit
     git checkout $var
+    home
     sudo umount /home/ec2-user/metaGit
 done
