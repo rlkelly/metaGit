@@ -45,6 +45,8 @@ def get_branches():
 
     order = main + ' ' + ' '.join(branches)
 
+    print branches
+
     return branches
 
 get_branches()

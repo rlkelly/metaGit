@@ -41,4 +41,6 @@ try:
 except IndexError:
     master = branches.pop(branch.index('master'))
 
+print master
+
 return master
