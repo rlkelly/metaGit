@@ -37,8 +37,8 @@ for branch in branches:
     requests.delete('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
 
 try:
-    master = branches.pop(branches.index(sys.argv[1]))
+    main = branches.pop(branches.index(sys.argv[1]))
 except IndexError:
-    master = branches.pop(branch.index('master'))
+    main = branches.pop(branch.index('master'))
 
-return master
+return main
