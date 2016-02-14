@@ -1,0 +1,22 @@
+
+
+sudo umount /home/ec2-user/original
+sudo mount -o nolock  172.31.44.3:/text /home/ec2-user/original
+
+
+
+GET /vsa/volumes
+
+
+POST /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}/clone
+
+
+DELETE /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
+
+ß
+
+
+
+
+eval `ssh-agent -s`
+eval ssh-add ~/.ssh/github

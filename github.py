@@ -42,7 +42,10 @@ except IndexError:
     main = branches.pop(branch.index('master'))
 
 order = main + ' ' + ' '.join(branches)
+print main
+print order
+print order[1:]
 os.system('sh create_master.sh {}'.format(main))
-os.system('sh /script.sh {}'.format(order))
+os.system('sh /script.sh {}'.format(main, order[1:]))
 
 print('Complete!')
