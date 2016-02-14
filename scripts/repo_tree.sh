@@ -2,7 +2,7 @@
 set -e
 
 alias home="cd"
-alias metaGit="cd /metaGit"
+alias metaGit="cd metaGit"
 
 for var in "$@"
 do
