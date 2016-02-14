@@ -37,12 +37,12 @@ for branch in branches:
     requests.delete('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
 
 try:
-    branches.pop(branch.index(sys.argv[1]))
+    branches.pop(branches.index(sys.argv[1]))
 except IndexError:
     main = branches.pop(branch.index('master'))
 
-order = main + ' '.join(lst)
-
-os.system('script.sh {}'.format(order))
+order = main+ ' ' + ' '.join(branches)
+print order
+os.system('./script.sh {}'.format(order))
 
 print('Complete!')
