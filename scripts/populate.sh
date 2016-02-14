@@ -3,5 +3,5 @@ set -e
 
 sh create_master.sh
 
-OUTPUT="$(python get_branches.py)"
-FINAL="$(sh repo_tree.sh ${OUTPUT})"
+OUTPUT2="$(python get_branches.py)"
+FINAL="$(sh repo_tree.sh ${OUTPUT2})"
