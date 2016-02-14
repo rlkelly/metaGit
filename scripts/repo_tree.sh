@@ -12,11 +12,11 @@ do
     home
     sudo mount -o nolock  172.31.44.3:/$var /home/ec2-user/metaGit
     metaGit
-    echo "clone?"
     git clone git@github.com:rlkelly/metaGit.git
-    echo "cloned!"
     metaGit
-    git checkout $var
+    git checkout $varcd
     home
     sudo umount /home/ec2-user/metaGit
 done
+
+sudo umount /home/ec2-user/metaGit

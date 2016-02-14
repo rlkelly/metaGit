@@ -11,3 +11,7 @@ dependencies:
 test:
   override:
     - python tests/basics.py
+
+deployment:
+  production:
+
