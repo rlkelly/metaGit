@@ -19,5 +19,4 @@ DELETE /vsa/volumes/{workingEnvironmentId}/{svmName}/{volumeName}
 
 
 eval `ssh-agent -s`
-
-eval ssh-add github
+eval ssh-add ~/.ssh/github
