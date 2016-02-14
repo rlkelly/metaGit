@@ -39,9 +39,9 @@ def get_master():
 
     try:
         main = branches.pop(branches.index(sys.argv[2]))
-    except IndexError:
-        main = branches.pop(branch.index('master'))
-    print 'master'
+    except:
+        main = 'master'
+    print main
     return main
 
 get_master()

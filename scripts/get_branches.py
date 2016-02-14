@@ -35,15 +35,16 @@ def get_branches():
         'Content-Length': '0',
     }
 
-    for branch in branches:
-        requests.delete('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
-
     try:
         main = sys.argv[1]
         branches.remove(sys.argv[1])
-    except ValueError, IndexError:
+    except:
         main = 'master'
         branches.remove('master')
+
+    for branch in branches:
+        requests.delete('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
+
 
     order = main + ' ' + ' '.join(branches)
 
