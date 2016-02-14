@@ -5,42 +5,46 @@ import requests
 import json
 import sys
 
-os.environ['client_secret'] = '1fe396b7960ca225804f8929855b4853467f723a'
+def get_branches():
 
-rv = requests.get('https://api.github.com/repos/rlkelly/metaGit?client_id=da4a8820b2a3bb2ad7ac&client_secret={}'.format(os.environ['client_secret']))
-repo_information = json.loads(rv.text)
-ssh_for_branch = repo_information['ssh_url']
+    os.environ['client_secret'] = '1fe396b7960ca225804f8929855b4853467f723a'
 
-# branches
-rv = requests.get('https://api.github.com/repos/rlkelly/metaGit/branches?client_id=da4a8820b2a3bb2ad7ac&client_secret={}'.format(os.environ['client_secret']))
-repo_branches = json.loads(rv.text)
+    rv = requests.get('https://api.github.com/repos/rlkelly/metaGit?client_id=da4a8820b2a3bb2ad7ac&client_secret={}'.format(os.environ['client_secret']))
+    repo_information = json.loads(rv.text)
+    ssh_for_branch = repo_information['ssh_url']
 
-branches = map(lambda x: str(x['name']), repo_branches)
+    # branches
+    rv = requests.get('https://api.github.com/repos/rlkelly/metaGit/branches?client_id=da4a8820b2a3bb2ad7ac&client_secret={}'.format(os.environ['client_secret']))
+    repo_branches = json.loads(rv.text)
 
-cookies = {
-    'JSESSIONID': '1gnm17xx03t1y1qkekk3s4x8fv',
-}
+    branches = map(lambda x: str(x['name']), repo_branches)
 
-headers = {
-    'Origin': 'http://52.3.253.34',
-    'Accept-Encoding': 'gzip, deflate, sdch',
-    'Accept-Language': 'en-US,en;q=0.8',
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36',
-    'Content-Type': 'application/json',
-    'Accept': '*/*',
-    'Referer': 'http://52.3.253.34/occm/api-doc/',
-    'Connection': 'keep-alive',
-    'Content-Length': '0',
-}
+    cookies = {
+        'JSESSIONID': '1gnm17xx03t1y1qkekk3s4x8fv',
+    }
 
-for branch in branches:
-    requests.delete('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
+    headers = {
+        'Origin': 'http://52.3.253.34',
+        'Accept-Encoding': 'gzip, deflate, sdch',
+        'Accept-Language': 'en-US,en;q=0.8',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.109 Safari/537.36',
+        'Content-Type': 'application/json',
+        'Accept': '*/*',
+        'Referer': 'http://52.3.253.34/occm/api-doc/',
+        'Connection': 'keep-alive',
+        'Content-Length': '0',
+    }
 
-try:
-    main = branches.pop(branches.index(sys.argv[1]))
-except IndexError:
-    main = branches.pop(branch.index('master'))
+    for branch in branches:
+        requests.delete('http://52.3.253.34/occm/api/vsa/volumes/VsaWorkingEnvironment-CASrF978/svm_First_Instance/{}'.format(branch), headers=headers, cookies=cookies)
 
-order = main + ' ' + ' '.join(branches)
+    try:
+        main = branches.pop(branches.index(sys.argv[1]))
+    except IndexError:
+        main = branches.pop(branch.index('master'))
 
-return branches
+    order = main + ' ' + ' '.join(branches)
+
+    return branches
+
+get_branches()
